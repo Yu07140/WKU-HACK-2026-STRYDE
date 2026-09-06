@@ -258,7 +258,7 @@ export function ClipCustomizerModal({
                     onClick={saveToCart}
                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-xs font-black tracking-[0.2em] text-paper transition hover:bg-ink/85"
                   >
-                    <ShoppingBag size={14} /> {t("SAVE MY CONCEPT — ADD TO CART", "保存我的概念——加入购物袋")}
+                    <ShoppingBag size={14} /> {t("SAVE MY STYLE — ADD TO CART", "保存我的风格——加入购物袋")}
                   </button>
                 </div>
 
@@ -284,8 +284,11 @@ export function ClipCustomizerModal({
 
 export function StrydeClips() {
   const { t } = useLang();
+  const { add } = useCart();
   const [selectedLetter, setSelectedLetter] = useState<ClipLetter>("A");
   const [previewFailed, setPreviewFailed] = useState(false);
+  const [size, setSize] = useState<number | null>(null);
+  const [added, setAdded] = useState(false);
 
   const previewImage = clipLetterImage(selectedLetter);
 
@@ -306,6 +309,29 @@ export function StrydeClips() {
       img.src = clipLetterImage(letter);
     }
   }, [selectedLetter]);
+
+  /* Reset "added" whenever letter or size changes. */
+  useEffect(() => {
+    setAdded(false);
+  }, [selectedLetter, size]);
+
+  function addPersonalizedBoot() {
+    if (!size) return;
+    add({
+      productId: "boot-14534-h",
+      productName: "STRYDE Mono Boot",
+      slug: "mono-boot",
+      color: `Black · Clip ${selectedLetter}`,
+      size,
+      sizeSystem: "EU",
+      price: 119,
+      qty: 1,
+      image: "/products/14534-h/black.jpg",
+      imagePrompt:
+        "black minimalist men's ankle boot, rear zipper, microfiber upper appearance, rubber outsole, clean realistic commercial footwear photography, no logo, no text",
+    });
+    setAdded(true);
+  }
 
   return (
     <section id="stryde-clips" className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -404,15 +430,63 @@ export function StrydeClips() {
             </div>
           </div>
 
-          {/* status */}
+          {/* add to cart — the real 14534-H with your letter noted */}
           <div className="mt-6 rounded-xl bg-cream p-4">
-            <span className="inline-flex rounded-full bg-ink px-3 py-1 text-[11px] font-black tracking-wider text-paper">
-              {t("COMING SOON", "即将推出")}
-            </span>
-            <p className="mt-2 text-xs leading-relaxed text-ink/45">
+            <div className="mb-2 flex items-center justify-between gap-2">
+              <span className="text-xs font-black tracking-[0.2em] text-ink/50">
+                {t("BOOT SIZE (EU)", "EU 鞋码")}
+              </span>
+              <span className="text-sm font-black tracking-wider text-ink">$119</span>
+            </div>
+            <div className="grid grid-cols-9 gap-1.5">
+              {[38, 39, 40, 41, 42, 43, 44, 45, 46].map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => setSize(s)}
+                  aria-pressed={size === s}
+                  className={`flex h-8 items-center justify-center rounded-md border text-xs font-bold transition ${
+                    size === s
+                      ? "border-ink bg-ink text-paper"
+                      : "border-ink/15 bg-white text-ink/70 hover:border-ink/50"
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={addPersonalizedBoot}
+              disabled={!size}
+              className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-xs font-black tracking-[0.2em] text-paper transition hover:bg-ink/85 disabled:cursor-not-allowed disabled:bg-ink/30"
+            >
+              {added ? (
+                <>
+                  <Check size={14} /> {t("ADDED TO CART", "已加入购物袋")}
+                </>
+              ) : (
+                <>
+                  <ShoppingBag size={14} />{" "}
+                  {t(
+                    `ADD ${selectedLetter} CLIP TO CART`,
+                    `加入 ${selectedLetter} 字母扣鞋款`
+                  )}
+                </>
+              )}
+            </button>
+            {added && (
+              <Link
+                href="/cart"
+                className="mt-2 block text-center text-xs font-bold text-ink underline underline-offset-2"
+              >
+                {t("VIEW BAG & CHECKOUT", "查看购物袋并结账")} →
+              </Link>
+            )}
+            <p className="mt-2 text-[11px] leading-relaxed text-ink/40">
               {t(
-                "Personalized STRYDE Clips are currently in development.",
-                "个性化 STRYDE 字母扣目前正在开发中。"
+                "Adds the 14534-H to your bag with your silver letter clip noted on the order.",
+                "将标准款 14534-H 加入购物袋，并在订单中备注你的银色字母扣。"
               )}
             </p>
           </div>
