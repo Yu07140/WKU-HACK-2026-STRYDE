@@ -56,15 +56,15 @@ export default function FAQPage() {
         {
           q: t("What's your return policy?", "退货政策是什么？"),
           a: t(
-            "30-day try-on guarantee: indoor try-on is accepted, outdoor-worn pairs are not returnable. Full details on our Returns page.",
-            "30 天试穿保障：室内试穿可退，户外穿着后不可退。详情请查看退货页面。"
+            "STRYDE offers a 30-day guarantee on your first pair. To start a return, email returns@stryde.com within 30 days of delivery.",
+            "STRYDE 为你的第一双提供 30 天质保。如需退货，请在收货后 30 天内邮件 returns@stryde.com。"
           ),
         },
         {
           q: t("The shoes don't fit. Can I exchange them?", "尺码不合适，可以换货吗？"),
           a: t(
-            "Start a return for the pair that doesn't fit, then place a new order for the right size. Use the Size Guide to measure your foot before ordering.",
-            "为不合适的鞋发起退货，再重新下单正确尺码。下单前请使用尺码指南测量脚长。"
+            "Email returns@stryde.com within your 30-day window and we'll help you get the right size. Use the Size Guide to measure your foot first.",
+            "请在 30 天质保期内邮件 returns@stryde.com，我们会帮你换到合适的尺码。下单前先用尺码指南量脚。"
           ),
         },
       ],
@@ -84,8 +84,8 @@ export default function FAQPage() {
         {
           q: t("How do I care for the boots?", "如何保养这双靴子？"),
           a: t(
-            "Product-specific care guidance is pending supplier confirmation. Avoid publishing product-specific cleaning instructions until the supplier provides an approved care method.",
-            "产品专属保养指引待供应商确认。在供应商提供经核准的保养方法之前，请勿发布产品专属清洁说明。"
+            "We're finalizing care guidance for the 14534-H and will publish it before launch. Until then, feel free to ask us in the chat bubble.",
+            "我们正在完善 14534-H 的保养指引，并会在发售前公布。在此之前，欢迎在右下角聊天中咨询我们。"
           ),
         },
       ],
@@ -166,8 +166,8 @@ export default function FAQPage() {
         </p>
         <p className="mx-auto mt-3 max-w-xl text-xs text-ink/40">
           {t(
-            "This is a demo store. Shipping, return, and payment terms are not verified operational commitments.",
-            "这是一个演示商店。配送、退货与支付条款尚未核实为实际运营承诺。"
+            "Demo store — shipping estimates and payment handling are for this demo. The 30-Day Guarantee on your first pair is a confirmed STRYDE policy.",
+            "演示商店——配送预估与支付处理仅用于演示。首双 30 天质保为已确认的 STRYDE 政策。"
           )}
         </p>
       </div>
@@ -206,20 +206,12 @@ export default function FAQPage() {
       <section className="mt-20 rounded-3xl bg-ink p-10 text-center text-paper md:p-14">
         <h2 className="text-3xl font-black md:text-4xl">{t("Still not sure?", "还有疑问？")}</h2>
         <p className="mx-auto mt-3 max-w-lg text-paper/60">
-          {t(
-            "Read the size guide or check the proof mode before you buy.",
-            "购买前请阅读尺码指南或查看证明模式。"
-          )}
+          {t("Read the size guide before you buy.", "购买前请阅读尺码指南。")}
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link href="/size-guide">
             <Button size="lg" variant="primary">
               {t("Size Guide", "尺码指南")} <ArrowRight size={18} />
-            </Button>
-          </Link>
-          <Link href="/proof">
-            <Button size="lg" variant="outline">
-              {t("Proof Mode", "证明模式")}
             </Button>
           </Link>
         </div>

@@ -10,12 +10,20 @@ import {
   Warehouse,
 } from "lucide-react";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin",
+  robots: { index: false, follow: false },
+};
+
 const NAV = [
   { href: "/admin", label: "增长总览", icon: LayoutDashboard },
   { href: "/admin/campaigns", label: "投放冷启动", icon: Megaphone },
   { href: "/admin/orders", label: "交易闭环", icon: ShoppingBag },
   { href: "/admin/stock", label: "温州库存", icon: Warehouse },
   { href: "/admin/selection", label: "AI 选款测试", icon: FlaskConical },
+  { href: "/admin/studio", label: "AI 创意工坊", icon: Sparkles },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -56,7 +64,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </nav>
           <div className="mt-8 space-y-1">
             <Link
-              href="/studio"
+              href="/admin/studio"
               className="flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/10 px-4 py-2.5 text-sm font-bold text-accent transition hover:bg-accent/20"
             >
               <Sparkles size={17} /> AIGC 素材工坊

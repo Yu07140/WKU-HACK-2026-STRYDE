@@ -85,7 +85,7 @@ const OBJECTIVE_TYPE_CN: Record<string, string> = {
   "DESIGN PREVIEW": "设计预览",
 };
 
-export default function StudioPage() {
+export default function StudioWorkspace() {
   const { t } = useLang();
   const [tab, setTab] = useState<TabId>("scene");
   const [draftPrompt, setDraftPrompt] = useState<string | undefined>(undefined);

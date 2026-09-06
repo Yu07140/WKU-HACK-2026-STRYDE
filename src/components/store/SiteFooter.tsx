@@ -26,25 +26,24 @@ export function SiteFooter() {
           title={t("Shop", "选购")}
           links={[
             [t("The 14534-H Boot", "14534-H 靴"), "/products/mono-boot"],
+            [t("STRYDE Clips", "STRYDE 字母扣"), "/clips"],
+            [t("STRYDE Duo", "STRYDE 双靴组合"), "/duo"],
             [t("Size Guide", "尺码指南"), "/size-guide"],
           ]}
         />
         <FooterCol
           title={t("Support", "售后服务")}
           links={[
-            [t("Size Guide", "尺码指南"), "/size-guide"],
             [t("Shipping & Delivery", "配送与时效"), "/shipping"],
             [t("Returns & Exchanges", "退货与换货"), "/returns"],
             [t("FAQ", "常见问题"), "/faq"],
+            [t("Contact", "联系我们"), "/faq"],
           ]}
         />
         <FooterCol
           title={t("Company", "关于我们")}
           links={[
             [t("Our Story", "品牌故事"), "/about"],
-            [t("Proof Mode", "证明模式"), "/proof"],
-            [t("Studio", "工坊"), "/studio"],
-            [t("Contact", "联系我们"), "/faq"],
           ]}
         />
       </div>
@@ -58,7 +57,7 @@ export function SiteFooter() {
         </span>
         <Link
           href="/admin"
-          className="mt-2 inline-block rounded-md border border-paper/20 px-3 py-1 text-xs font-bold text-paper/60 transition hover:border-paper/40 hover:text-paper"
+          className="mt-2 inline-block rounded border border-paper/15 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-paper/40 transition hover:border-paper/40 hover:text-paper/70"
         >
           {t("Admin", "管理后台")}
         </Link>

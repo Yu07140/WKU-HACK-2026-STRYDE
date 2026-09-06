@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ShoppingBag, Sparkles, Globe, User } from "lucide-react";
+import { ShoppingBag, Globe, User } from "lucide-react";
 import { useCart } from "@/lib/store/cart";
 import { useCurrency, CURRENCIES, type CurrencyCode } from "@/lib/store/currency";
 import { useLang } from "@/lib/store/lang";
@@ -26,7 +26,6 @@ export function SiteHeader() {
     { href: "/products/mono-boot", label: t("The Boot", "主打靴款") },
     { href: "/products", label: t("The System", "产品系统") },
     { href: "/about", label: t("Story", "品牌故事") },
-    { href: "/studio", label: t("Studio", "工坊"), icon: Sparkles },
   ];
 
   return (
@@ -44,7 +43,6 @@ export function SiteHeader() {
               href={n.href}
               className="flex items-center gap-1.5 text-sm font-semibold text-ink/70 transition hover:text-ink"
             >
-              {n.icon && <n.icon size={15} className="text-accent" />}
               {n.label}
             </Link>
           ))}

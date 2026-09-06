@@ -125,8 +125,8 @@ export function ClipCustomizerModal({
             </p>
             <p className="mt-4 max-w-sm text-xs leading-relaxed text-ink/40">
               {t(
-                "Your initial clip is attached as a personalization note. The clip accessory itself is still a concept under sourcing validation — the boot in your cart is the standard 14534-H.",
-                "你的专属字母扣已作为个性化备注附加。字母扣配件本身仍处于概念阶段，正在供应商验证中——购物袋中的鞋子为标准款 14534-H。"
+                "Your initial clip is attached as a personalization note. The clip accessory is coming soon — the boot in your cart is the standard 14534-H.",
+                "你的专属字母扣已作为个性化备注附加。字母扣配件即将上线——购物袋中的鞋子为标准款 14534-H。"
               )}
             </p>
             <Link
@@ -176,7 +176,7 @@ export function ClipCustomizerModal({
                   </span>
                 )}
                 <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold tracking-[0.3em] text-ink/50 shadow-sm">
-                  {t("STRYDE CLIP — CONCEPT VISUAL", "STRYDE 字母扣——概念视觉")}
+                  {t("STRYDE CLIP — PREVIEW", "STRYDE 字母扣——预览")}
                 </span>
               </div>
 
@@ -264,12 +264,12 @@ export function ClipCustomizerModal({
 
                 <div className="mt-5 rounded-xl bg-cream p-3.5">
                   <p className="text-xs font-black tracking-[0.2em] text-ink/60">
-                    {t("COMING NEXT", "即将推出")}
+                    {t("COMING SOON", "即将推出")}
                   </p>
                   <p className="mt-1 text-xs leading-relaxed text-ink/45">
                     {t(
-                      "Custom letter clips are currently a concept under sourcing validation.",
-                      "定制字母扣目前仍处于概念阶段，正在供应商验证中。"
+                      "Personalized STRYDE Clips are currently in development.",
+                      "个性化 STRYDE 字母扣目前正在开发中。"
                     )}
                   </p>
                 </div>

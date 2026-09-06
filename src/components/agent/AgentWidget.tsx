@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { MiniProductCard } from "@/components/store/ProductCard";
@@ -264,17 +263,6 @@ export function AgentWidget() {
                   {m.products?.map((p) => (
                     <div key={p.slug} className="space-y-1.5">
                       <MiniProductCard product={p} />
-                      {/* Agent 专属：推荐商品 → 跳素材工坊一键生成广告创意
-                          作为 MiniProductCard 的兄弟节点，避免嵌套 <Link>。
-                          不传 slug，传 studio 内部使用的 productId（= Product.id）。 */}
-                      {p.id && (
-                        <Link
-                          href={`/studio?productId=${encodeURIComponent(p.id)}`}
-                          className="group flex items-center justify-center gap-1.5 rounded-lg border border-dashed border-accent/40 bg-accent/5 px-2.5 py-1.5 text-[11px] font-bold text-accent-dark transition hover:border-accent hover:bg-accent hover:text-white"
-                        >
-                          ✨ Generate Ad Creative
-                        </Link>
-                      )}
                     </div>
                   ))}
                 </div>

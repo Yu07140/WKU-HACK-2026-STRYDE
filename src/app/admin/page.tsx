@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { TrendingUp, ArrowRight } from "lucide-react";
+import { TrendingUp, ArrowRight, Sparkles } from "lucide-react";
 import { getOrders } from "@/lib/data/orders";
 import { CAMPAIGNS, FUNNEL } from "@/lib/data/campaigns";
 import { PRODUCTS, getProductById } from "@/lib/data/catalog";
@@ -84,6 +84,32 @@ export default function AdminOverview() {
             {m === "plan" ? "PLAN (Simulated)" : "ACTUAL"}
           </button>
         ))}
+      </div>
+
+      {/* AI CREATIVE STUDIO — 内部创意生产工坊入口 */}
+      <div className="rounded-2xl border border-accent/30 bg-accent/5 p-6 transition hover:border-accent/60">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-accent">
+              <Sparkles size={22} />
+            </span>
+            <div>
+              <div className="text-base font-black tracking-wide text-white">
+                AI CREATIVE STUDIO
+              </div>
+              <p className="mt-1 max-w-xl text-xs leading-relaxed text-slate-400">
+                Generate and manage STRYDE campaign creatives, copy, matrices and video
+                concepts.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/admin/studio"
+            className="flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-bold text-white transition hover:bg-accent-dark"
+          >
+            OPEN STUDIO <ArrowRight size={15} />
+          </Link>
+        </div>
       </div>
 
       {/* KPI */}

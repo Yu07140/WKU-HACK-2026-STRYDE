@@ -412,7 +412,7 @@ export function PDPView({ product, initialColorIdx = 0 }: { product: Product; in
               <dl className="space-y-2 text-ink/70">
                 <div className="flex gap-2">
                   <dt className="w-36 shrink-0 text-ink/50">{t("Lead time", "生产周期")}</dt>
-                  <dd>{t("Production 3–5 business days + international transit 8–15 days (estimate, pending supplier confirmation)", "生产 3–5 个工作日 + 国际运输 8–15 天（预估，以供应商确认为准）")}</dd>
+                  <dd>{t("Production 3–5 business days + international transit 8–15 days (estimate)", "生产 3–5 个工作日 + 国际运输 8–15 天（预估）")}</dd>
                 </div>
                 <div className="flex gap-2">
                   <dt className="w-36 shrink-0 text-ink/50">{t("Duties", "关税")}</dt>
@@ -420,7 +420,7 @@ export function PDPView({ product, initialColorIdx = 0 }: { product: Product; in
                 </div>
                 <div className="flex gap-2">
                   <dt className="w-36 shrink-0 text-ink/50">{t("Returns", "退货")}</dt>
-                  <dd>{t("30-day try-on guarantee — indoor try-on accepted, outdoor-worn not returnable", "30 天试穿保障——室内试穿可退，户外穿着后不可退")}</dd>
+                  <dd>{t("30-Day Guarantee — your first pair is covered. Email returns@stryde.com within 30 days of delivery.", "30 天质保——你的第一双享保障。请在收货 30 天内邮件 returns@stryde.com。")}</dd>
                 </div>
                 <div className="flex gap-2">
                   <dt className="w-36 shrink-0 text-ink/50">{t("Sizing", "尺码")}</dt>

@@ -74,12 +74,6 @@ export default function AboutPage() {
                   {t("Shop the boot", "选购这双靴子")} <ArrowRight size={18} />
                 </Button>
               </Link>
-              <Link
-                href="/proof"
-                className="text-sm font-bold text-ink/70 underline underline-offset-4 decoration-ink/30"
-              >
-                {t("See the evidence", "查看实证")}
-              </Link>
             </div>
           </div>
           {featured && (

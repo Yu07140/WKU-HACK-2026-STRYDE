@@ -12,6 +12,17 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/admin/stock", req.url));
   }
 
+  // 旧公开 /studio 已移至内部 /admin/studio：已登录 admin 直达内部路由，否则去登录页
+  if (pathname === "/studio") {
+    const studioToken = req.cookies.get("stryde-admin-token")?.value;
+    if (studioToken === ADMIN_PASSWORD) {
+      return NextResponse.redirect(new URL("/admin/studio", req.url));
+    }
+    const studioLoginUrl = new URL("/login", req.url);
+    studioLoginUrl.searchParams.set("redirect", "/studio");
+    return NextResponse.redirect(studioLoginUrl);
+  }
+
   // 客户账户区：cookie 存在即初步放行，/account 页面会再调 /api/auth/me 校验会话有效性
   if (pathname.startsWith("/account")) {
     const hasSession = Boolean(req.cookies.get(USER_SESSION_COOKIE)?.value);
@@ -49,5 +60,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/stock", "/account/:path*"],
+  matcher: ["/admin/:path*", "/stock", "/studio", "/account/:path*"],
 };
